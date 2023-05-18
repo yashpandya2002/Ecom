@@ -1,0 +1,26 @@
+public void addProduct(int userId,int productId)
+			{
+				Connection con=DbConnection.getConnection();	
+				PreparedStatement ps=con.prepareStatement("insert into carts (userId,productId) values (?,?)");
+				ps.setInt(1, userId);
+				ps.setInt(2, productId);
+				ps.executeUpdate();
+				
+			}
+		HttpSession session2 =request.getSession();
+		Integer userId=(Integer) session2.getAttribute("userId");
+		
+		
+		addProduct(<%=userId %>,<%=result.getInt("productId") %>)
+		
+		
+		
+		<div class="container-fluid">
+<div class="row">
+<div class="col-md-4">
+	<a href="Carts.jsp" ><img src="resources/images/carts.png" alt="Carts" style="width:42px;height:42px;"></a>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		</div>
+	 </div>
+	 </div>
